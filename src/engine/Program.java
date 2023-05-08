@@ -3,6 +3,7 @@ package engine;
 import entities.Contracts;
 import entities.Installment;
 import services.ContractService;
+import services.PayPalService;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -33,7 +34,7 @@ public class Program {
         System.out.print("Enter the number of months: ");
         int n = sc.nextInt();
 
-        ContractService contractService = new ContractService(null);
+        ContractService contractService = new ContractService(new PayPalService());
 
         contractService.processContract(obj, n);
 
